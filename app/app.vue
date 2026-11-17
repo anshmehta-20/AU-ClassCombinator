@@ -25,35 +25,15 @@ const { status, signOut, data } = useAuth();
             class="underline hover:opacity-80 font-medium"
           >Jeel Rajodiya</a>, created because the original project was not updated for recent semesters. Full credits for the original app design and architecture belong to Jeel Rajodiya.
         </div>
-        <div class="text-xs text-muted flex flex-wrap items-center justify-center gap-2 md:gap-3">
-          <a
-            href="https://github.com/JeelRajodiya/AU-ClassCombinator"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="underline hover:opacity-80"
-          >
-            Original Project (GitHub)
-          </a>
+        <div v-if="status === 'authenticated'" class="text-xs text-muted flex items-center justify-center gap-1.5 pt-0.5">
+          <span>Signed in as {{ data?.user?.email }}</span>
           •
-          <a
-            href="https://github.com/anshmehta-20/AU-ClassCombinator"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="underline hover:opacity-80"
+          <button
+            @click="signOut({ callbackUrl: '/login' })"
+            class="underline text-primary cursor-pointer hover:opacity-80"
           >
-            Winter 2027 Fork (GitHub)
-          </a>
-          <template v-if="status === 'authenticated'">
-            •
-            <span>Signed in as {{ data?.user?.email }}</span>
-            •
-            <button
-              @click="signOut({ callbackUrl: '/login' })"
-              class="underline text-primary cursor-pointer hover:opacity-80"
-            >
-              Sign out
-            </button>
-          </template>
+            Sign out
+          </button>
         </div>
       </footer>
     </div>
