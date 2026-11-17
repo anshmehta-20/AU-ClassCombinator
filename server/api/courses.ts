@@ -1,7 +1,5 @@
 import { defineEventHandler, readBody, createError } from "h3";
-import dbConnect from "../db";
-import Course from "../models/Course";
-import type { ICourseDTO } from "../../types/course";
+import { getCoursesDTOByIds } from "../utils/coursesRepo";
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
@@ -14,14 +12,7 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
-    await dbConnect();
-    const courses = (await Course.find({
-      _id: { $in: body },
-    })
-      .select("-sections.fiveMinuteBitMask -sections.dateRange.oneDayBitMask")
-      .lean()
-      .exec()) as unknown as ICourseDTO[];
-
+    const courses = getCoursesDTOByIds(body);
     return courses;
   } catch (error) {
     console.error("Error fetching courses:", error);

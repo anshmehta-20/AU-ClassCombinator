@@ -1,7 +1,6 @@
 import type { ICourse, ISection } from "../../types/course";
 import type { AssignmentType } from "../../types/combinator";
-import dbConnect from "../db";
-import Course from "../models/Course";
+import { getCoursesByIdsWithBitmasks } from "./coursesRepo";
 
 type CoursesType = ICourse[];
 type CompatibilityMatrixType = {
@@ -99,18 +98,17 @@ class Combinator implements ICombinator {
   // 3. generate combinations using backtracking
   // We'll say that section id is, course_id.section_no (e.g. axxefsdfsdf.1)
   async fetchCoursesByIds(ids: string[]) {
-    await dbConnect();
-    const courses = await Course.find({ _id: { $in: ids } }).exec();
+    const courses = getCoursesByIdsWithBitmasks(ids);
 
     if (courses.length !== ids.length) {
-      const foundIds = courses.map((c) => c.id.toString());
+      const foundIds = courses.map((c) => c._id.toString());
       const notFoundIds = ids.filter((id) => !foundIds.includes(id));
       throw new Error(
         `Could not find courses with IDs: ${notFoundIds.join(", ")}`
       );
     }
 
-    this.courses = courses.map((course) => course.toObject());
+    this.courses = courses;
 
     // Initialize domains, neighbors, and sectionById
     this.domains = {};

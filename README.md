@@ -35,8 +35,9 @@ Updated and maintained by **[Ansh Mehta](https://github.com/anshmehta-20)**:
 ### Prerequisites
 
 - Node.js (v18+) and npm / pnpm
-- Python 3.9+
-- MongoDB instance (local or MongoDB Atlas)
+
+> [!TIP]
+> **Zero Configuration Required**: This build embeds the Winter 2027 course catalog directly in the application. No MongoDB database or Google OAuth setup is required to run locally or deploy to Vercel!
 
 ### Setup
 
@@ -46,21 +47,20 @@ Updated and maintained by **[Ansh Mehta](https://github.com/anshmehta-20)**:
    cd AU-ClassCombinator
    ```
 
-2. **Environment Configuration**:
-   Copy `.env.example` to `.env` and fill in your values:
-   ```bash
-   cp .env.example .env
-   ```
-
-3. **Install Dependencies**:
+2. **Install Dependencies**:
    ```bash
    npm install
    ```
 
-4. **Run Development Server**:
+3. **Run Development Server**:
    ```bash
    npm run dev
    ```
+
+### Deploying to Vercel
+
+1. Import the repository in Vercel and select **app (Nuxt)**.
+2. Click **Deploy** directly — no environment variables are required!
 
 ---
 

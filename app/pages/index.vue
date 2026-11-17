@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import SemesterSwitch from "~/components/SemesterSwitch.vue";
 
-const { getSession } = useAuth();
-const session = await getSession();
-console.log("Session in Index Page:", session);
-
 // Use centralized store
 const { selectedSemester } = useCourseStore();
 
