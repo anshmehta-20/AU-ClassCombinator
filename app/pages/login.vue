@@ -61,30 +61,6 @@ onMounted(() => {
       </div>
 
       <LoginWithGoogle />
-
-      <div
-        class="text-xs text-muted text-center max-w-md bg-neutral-500/10 border border-neutral-500/20 rounded-lg p-3 space-y-1.5"
-      >
-        <p>
-          This is an updated <b>fork</b> of the original
-          <a
-            href="https://github.com/JeelRajodiya/AU-ClassCombinator"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-primary underline hover:opacity-80 font-medium"
-          >AU-ClassCombinator</a>
-          project by
-          <a
-            href="https://github.com/JeelRajodiya"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="underline hover:opacity-80 font-medium"
-          >Jeel Rajodiya</a>, created because the original project was not updated for Winter 2027.
-        </p>
-        <p class="text-[11px] text-muted/80">
-          All credits for the original app architecture belong to Jeel Rajodiya.
-        </p>
-      </div>
     </div>
   </div>
 </template>
@@ -94,15 +70,15 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100dvh - 4rem);
+  flex: 1;
   width: 100%;
   flex-direction: column;
-  padding-bottom: 4em;
+  padding-bottom: 2em;
 }
 
 @media (min-width: 768px) {
   .landing-page {
-    padding-bottom: 10em;
+    padding-bottom: 4em;
   }
 }
 
