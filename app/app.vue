@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const { status, signOut, data } = useAuth();
+</script>
+
 <template>
   <UApp>
     <NuxtPage />
@@ -29,9 +33,19 @@
           class="underline hover:opacity-80"
         >Ansh Mehta</a>
       </div>
+      <div v-if="status === 'authenticated'" class="text-xs text-muted pt-1">
+        Signed in as {{ data?.user?.email }} •
+        <button
+          @click="signOut({ callbackUrl: '/login' })"
+          class="underline text-primary cursor-pointer hover:opacity-80"
+        >
+          Sign out
+        </button>
+      </div>
     </footer>
   </UApp>
 </template>
+
 <style>
 html,
 body,

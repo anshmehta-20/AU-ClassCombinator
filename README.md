@@ -35,9 +35,25 @@ Updated and maintained by **[Ansh Mehta](https://github.com/anshmehta-20)**:
 ### Prerequisites
 
 - Node.js (v18+) and npm / pnpm
+- Google Cloud OAuth 2.0 Credentials (Client ID & Client Secret)
 
-> [!TIP]
-> **Zero Configuration Required**: This build embeds the Winter 2027 course catalog directly in the application. No MongoDB database or Google OAuth setup is required to run locally or deploy to Vercel!
+### Environment Configuration
+
+Copy `.env.example` to `.env` and set your credentials:
+
+```bash
+cp .env.example .env
+```
+
+| Variable | Description |
+|---|---|
+| `GOOGLE_CLIENT_ID` | Google OAuth Client ID |
+| `GOOGLE_CLIENT_SECRET` | Google OAuth Client Secret |
+| `NUXT_AUTH_SECRET` | Secret key for JWT sessions (`openssl rand -base64 32`) |
+| `AUTH_ORIGIN` | Auth base URL (e.g. `http://localhost:3000/api/auth` or your production domain `/api/auth`) |
+
+> [!NOTE]
+> Authentication is strictly restricted to **Ahmedabad University** accounts (`@ahduni.edu.in`). Users attempting to sign in with other domains will receive an Access Denied error.
 
 ### Setup
 
@@ -59,8 +75,9 @@ Updated and maintained by **[Ansh Mehta](https://github.com/anshmehta-20)**:
 
 ### Deploying to Vercel
 
-1. Import the repository in Vercel and select **app (Nuxt)**.
-2. Click **Deploy** directly — no environment variables are required!
+1. Import the repository in Vercel and select **Nuxt**.
+2. Add the environment variables (`GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `NUXT_AUTH_SECRET`, `AUTH_ORIGIN`).
+3. Deploy!
 
 ---
 
