@@ -5,33 +5,41 @@ const { status, signOut, data } = useAuth();
 <template>
   <UApp>
     <NuxtPage />
-    <footer class="text-sm md:text-base text-default text-center py-4 px-4 space-y-1">
-      <div>
-        Give a star on
+    <footer class="text-sm md:text-base text-default text-center py-6 px-4 space-y-2">
+      <div class="text-xs text-muted max-w-xl mx-auto leading-relaxed">
+        This is an updated fork of the original
         <a
           href="https://github.com/JeelRajodiya/AU-ClassCombinator"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-primary underline hover:opacity-80 transition-opacity"
-        >
-          Github
-        </a>
-      </div>
-      <div class="text-xs text-muted">
-        Created by
+          class="text-primary underline hover:opacity-80 transition-opacity font-medium"
+        >AU-ClassCombinator</a>
+        by
         <a
           href="https://github.com/JeelRajodiya"
           target="_blank"
           rel="noopener noreferrer"
-          class="underline hover:opacity-80"
-        >Jeel Rajodiya</a>
-        • Winter 2027 data by
+          class="underline hover:opacity-80 font-medium"
+        >Jeel Rajodiya</a>, created because the original project was not updated for recent semesters. Full credits for the original app design and architecture belong to Jeel Rajodiya.
+      </div>
+      <div class="text-xs text-muted flex items-center justify-center gap-3">
         <a
-          href="https://github.com/anshmehta-20"
+          href="https://github.com/JeelRajodiya/AU-ClassCombinator"
           target="_blank"
           rel="noopener noreferrer"
           class="underline hover:opacity-80"
-        >Ansh Mehta</a>
+        >
+          Original Project (GitHub)
+        </a>
+        •
+        <a
+          href="https://github.com/anshmehta-20/AU-ClassCombinator"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline hover:opacity-80"
+        >
+          Winter 2027 Fork (GitHub)
+        </a>
       </div>
       <div v-if="status === 'authenticated'" class="text-xs text-muted pt-1">
         Signed in as {{ data?.user?.email }} •
