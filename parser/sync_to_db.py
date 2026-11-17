@@ -137,7 +137,8 @@ def main():
   print(f"Validating {json_file} against schema...")
   with open(json_file) as f:
       data = json.load(f)
-  with open("schema.json") as f:
+  schema_path = os.path.join(os.path.dirname(__file__), "schema.json")
+  with open(schema_path) as f:
       schema = json.load(f)
   validate(instance=data, schema=schema)
   print("Validation successful.")

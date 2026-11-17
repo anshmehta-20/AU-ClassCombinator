@@ -36,7 +36,7 @@
       },
       "year": {
         "type": "integer",
-        "description": "Academic year (e.g., 2026)."
+        "description": "Academic year (e.g., 2027)."
       },
       "prerequisite": {
         "type": "string",

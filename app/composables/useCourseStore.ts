@@ -14,7 +14,7 @@ export const useCourseStore = () => {
   // Semester
   const selectedSemester = useState<string>(
     "store:semester",
-    () => "Winter 2026"
+    () => "Winter 2027"
   );
 
   // Selected course IDs

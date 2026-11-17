@@ -37,7 +37,7 @@ const formatDate = (dateString) => {
   }
 };
 
-// Creates the formatted date range string (e.g., "05-01-2026 - 19-04-2026")
+// Creates the formatted date range string (e.g., "04-01-2027 - 18-04-2027")
 const formatDateRange = (dateRange) => {
   if (!dateRange || !dateRange.start || !dateRange.end) return "N/A";
   const start = formatDate(dateRange.start);

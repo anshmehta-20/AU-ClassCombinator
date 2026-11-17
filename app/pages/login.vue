@@ -7,10 +7,10 @@ const route = useRoute();
 const router = useRouter();
 
 const { data: semesters } = await useFetch<string[]>("/api/semesters", {
-  default: () => ["Winter 2026"],
+  default: () => ["Winter 2027"],
 });
 const latestSemester = computed(
-  () => semesters.value?.[0] ?? "Winter 2026"
+  () => semesters.value?.[0] ?? "Winter 2027"
 );
 
 onMounted(() => {
